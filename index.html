@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <script src="js/axios.js"></script>
+    <script src="js/vue.js"></script>
+  </head>
+  <body>
+    <div id="app-7">
+      <ol>
+	<!-- Now we provide each todo-item with the todo object    -->
+	<!-- it's representing, so that its content can be dynamic -->
+	<todo-item v-for="item in groceryList" v-bind:todo="item"></todo-item>
+      </ol>
+      <div v-on:click="postit">click me</div>
+    </div>
+  </body>
+  <script>
+    Vue.component('todo-item', {
+     props: ['todo'],
+     template: '<li>{{ todo }}</li>'
+    })
+    var app7 = new Vue({
+     el: '#app-7',
+     data: {
+     groceryList: [ 'apples', 'bananas', 'pears']
+     },
+     methods: {
+     postit: function(event) {
+       axios.post('/user', {
+         firstName: 'Fred',
+	 lastName: 'Flintstone'
+       })
+       .then(function (response) {
+         console.log(response);
+       })
+       .catch(function (error) {
+         console.log(error);
+       });
+     }
+     }
+    })
+  
+  </script>
+</html>
