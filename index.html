@@ -25,10 +25,7 @@
      },
      methods: {
      postit: function(event) {
-       axios.post('/user', {
-         firstName: 'Fred',
-	 lastName: 'Flintstone'
-       })
+       axios.post('/user', ['een', 'twee'])
        .then(function (response) {
          console.log(response);
        })
