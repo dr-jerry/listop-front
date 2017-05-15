@@ -14,6 +14,8 @@
     </div>
   </body>
   <script>
+    var boodschappen = {item : "kaas"
+       , parent: {item:"zuivel", parent: {item: "Lidl", parent: {item: "jeroenslijst"}}}};
     Vue.component('todo-item', {
      props: ['todo'],
      template: '<li>{{ todo }}</li>'
@@ -25,7 +27,7 @@
      },
      methods: {
      postit: function(event) {
-       axios.post('/user', ['een', 'twee'])
+       axios.post('/store', boodschappen)
        .then(function (response) {
          console.log(response);
        })
