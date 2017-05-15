@@ -27,7 +27,7 @@
      },
      methods: {
      postit: function(event) {
-       axios.post('/store', boodschappen)
+       axios.post('/list/store', boodschappen)
        .then(function (response) {
          console.log(response);
        })
